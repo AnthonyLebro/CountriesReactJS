@@ -1,9 +1,22 @@
 import React from 'react';
-import Countries from './Countries';
+
 
 const Card = (props) => {
-  const country = props.country;
-   return <div>Card</div>;
+  const {country} = props;
+  console.log(country);
+   return (
+     <li className="card">
+       <img src={country.flag} alt="flag"/>
+       <div className="data-container">
+         <ul>
+         <li>{country.name}</li>
+         <li>Capitale: {country.capital}</li>
+         <li>Population: {country.population}</li>
+         <li>Continent: {country.region}</li>
+         </ul>
+       </div>
+     </li>
+   )
   
 };
 
