@@ -7,6 +7,8 @@ const Countries = () => {
   const [sortedData, setSortedData] = useState([]);
   const [playOnce, setPlayOnce] = useState(true);
   const [rangeValue, setRangeValue] = useState(40);
+  const [selectedradio, setselectedRadio] = useState(' ');
+  const radios = ["Africa", "America", "Asia", "Europe", "Oceania"]
 
 useEffect(() => {
   if (playOnce) {
@@ -39,6 +41,17 @@ sortedCountry();
       <div className="sort-container">
         <input type="range" min="1" max="250" value={rangeValue}
         onChange={(e) => setRangeValue(e.target.value)} />
+        <ul>
+          {radios.map((radio)=> {
+            return (
+              <li key={radio}>
+                <input type="radio" value={radio} id={radio}/>
+                <label htmlFor={radio}> {radio} </label>
+              </li>
+            )
+          })}
+
+        </ul>
       </div>
       <ul className= "countries-list">
         {sortedData.map((country)=> (
